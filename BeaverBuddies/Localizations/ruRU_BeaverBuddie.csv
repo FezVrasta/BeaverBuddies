@@ -90,3 +90,5 @@ BeaverBuddies.Settings.AllowDevTools,"Разрешить инструменты 
 BeaverBuddies.Settings.AllowDevTools.Tooltip,"Когда вы хост, все игроки могут пользоваться инструментами разработчика. Сделанные ими изменения синхронизируются. Инструменты, которые нельзя синхронизировать, в кооперативе всегда заблокированы.",""
 BeaverBuddies.DevTools.DisabledByHost,"Хост отключил инструменты разработчика в этой игре.",""
 BeaverBuddies.DevTools.NotSynced,"Этот инструмент разработчика нельзя использовать в кооперативе, потому что его нельзя синхронизировать.",""
+BeaverBuddies.Settings.ShowPlayerCursors,"Показывать курсоры игроков",""
+BeaverBuddies.Settings.ShowPlayerCursors.Tooltip,"Показывает, куда указывают другие игроки, и делится с ними вашим курсором. Использует цвет ваших меток.",""

@@ -90,3 +90,5 @@ BeaverBuddies.Settings.AllowDevTools,"Дозволити інструменти 
 BeaverBuddies.Settings.AllowDevTools.Tooltip,"Коли ви хост, усі гравці можуть користуватися інструментами розробника. Зміни, зроблені ними, синхронізуються. Інструменти, які не можна синхронізувати, у кооперативі завжди заблоковані.",""
 BeaverBuddies.DevTools.DisabledByHost,"Хост вимкнув інструменти розробника в цій грі.",""
 BeaverBuddies.DevTools.NotSynced,"Цей інструмент розробника не можна використовувати в кооперативі, бо його не можна синхронізувати.",""
+BeaverBuddies.Settings.ShowPlayerCursors,"Показувати курсори гравців",""
+BeaverBuddies.Settings.ShowPlayerCursors.Tooltip,"Показує, куди вказують інші гравці, і ділиться з ними вашим курсором. Використовує колір ваших позначок.",""

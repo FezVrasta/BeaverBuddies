@@ -90,3 +90,5 @@ BeaverBuddies.Settings.AllowDevTools,"協力プレイで開発ツールを許可
 BeaverBuddies.Settings.AllowDevTools.Tooltip,"ホストの場合、すべてのプレイヤーが開発ツールを使えるようになります。開発ツールによる変更は同期されます。同期できない開発ツールは協力プレイでは常にブロックされます。",""
 BeaverBuddies.DevTools.DisabledByHost,"ホストがこのゲームの開発ツールを無効にしています。",""
 BeaverBuddies.DevTools.NotSynced,"この開発ツールは同期できないため、協力プレイでは使用できません。",""
+BeaverBuddies.Settings.ShowPlayerCursors,"プレイヤーのカーソルを表示",""
+BeaverBuddies.Settings.ShowPlayerCursors.Tooltip,"他のプレイヤーが指している場所を表示し、あなたのカーソルも共有します。ピンの色を使用します。",""

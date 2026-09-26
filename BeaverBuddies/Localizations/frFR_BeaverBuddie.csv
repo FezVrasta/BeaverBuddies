@@ -94,3 +94,5 @@ BeaverBuddies.Settings.AllowDevTools,"Autoriser les outils de développement en 
 BeaverBuddies.Settings.AllowDevTools.Tooltip,"Quand vous hébergez, tous les joueurs peuvent utiliser les outils de développement. Les modifications faites avec sont synchronisées. Les outils qui ne peuvent pas être synchronisés sont toujours bloqués en coop.",""
 BeaverBuddies.DevTools.DisabledByHost,"L'hôte a désactivé les outils de développement pour cette partie.",""
 BeaverBuddies.DevTools.NotSynced,"Cet outil de développement ne peut pas être utilisé en coop car il ne peut pas être synchronisé.",""
+BeaverBuddies.Settings.ShowPlayerCursors,"Afficher les curseurs des joueurs",""
+BeaverBuddies.Settings.ShowPlayerCursors.Tooltip,"Affiche où pointent les autres joueurs et partage votre curseur avec eux. Utilise votre couleur de marqueur.",""

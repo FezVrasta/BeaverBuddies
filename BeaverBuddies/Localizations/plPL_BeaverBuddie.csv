@@ -90,3 +90,5 @@ BeaverBuddies.Settings.AllowDevTools,"Zezwalaj na narzędzia deweloperskie w co-
 BeaverBuddies.Settings.AllowDevTools.Tooltip,"Gdy jesteś hostem, wszyscy gracze mogą używać narzędzi deweloperskich. Zmiany wprowadzone za ich pomocą są synchronizowane. Narzędzia, których nie da się zsynchronizować, są w co-opie zawsze zablokowane.",""
 BeaverBuddies.DevTools.DisabledByHost,"Host wyłączył narzędzia deweloperskie w tej grze.",""
 BeaverBuddies.DevTools.NotSynced,"Tego narzędzia deweloperskiego nie można używać w co-opie, ponieważ nie da się go zsynchronizować.",""
+BeaverBuddies.Settings.ShowPlayerCursors,"Pokaż kursory graczy",""
+BeaverBuddies.Settings.ShowPlayerCursors.Tooltip,"Pokazuje, gdzie wskazują inni gracze, i udostępnia im twój kursor. Używa koloru twojego pinga.",""

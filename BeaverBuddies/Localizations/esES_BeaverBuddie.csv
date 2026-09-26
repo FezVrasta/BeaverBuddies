@@ -90,3 +90,5 @@ BeaverBuddies.Settings.AllowDevTools,"Permitir herramientas de desarrollo en coo
 BeaverBuddies.Settings.AllowDevTools.Tooltip,"Cuando eres el anfitrión, todos los jugadores pueden usar las herramientas de desarrollo. Los cambios hechos con ellas se sincronizan. Las herramientas que no se pueden sincronizar siempre están bloqueadas en cooperativo.",""
 BeaverBuddies.DevTools.DisabledByHost,"El anfitrión ha desactivado las herramientas de desarrollo en esta partida.",""
 BeaverBuddies.DevTools.NotSynced,"Esta herramienta de desarrollo no se puede usar en cooperativo porque no se puede sincronizar.",""
+BeaverBuddies.Settings.ShowPlayerCursors,"Mostrar cursores de jugadores",""
+BeaverBuddies.Settings.ShowPlayerCursors.Tooltip,"Muestra hacia dónde apuntan los demás jugadores y comparte tu cursor con ellos. Usa tu color de marcador.",""

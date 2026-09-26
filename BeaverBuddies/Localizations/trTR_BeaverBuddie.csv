@@ -90,3 +90,5 @@ BeaverBuddies.Settings.AllowDevTools,"Ortak oyunda geliştirici araçlarına izi
 BeaverBuddies.Settings.AllowDevTools.Tooltip,"Sunucu sen olduğunda tüm oyuncular geliştirici araçlarını kullanabilir. Bu araçlarla yapılan değişiklikler senkronize edilir. Senkronize edilemeyen araçlar ortak oyunda her zaman engellenir.",""
 BeaverBuddies.DevTools.DisabledByHost,"Sunucu bu oyunda geliştirici araçlarını devre dışı bıraktı.",""
 BeaverBuddies.DevTools.NotSynced,"Bu geliştirici aracı senkronize edilemediği için ortak oyunda kullanılamaz.",""
+BeaverBuddies.Settings.ShowPlayerCursors,"Oyuncu imleçlerini göster",""
+BeaverBuddies.Settings.ShowPlayerCursors.Tooltip,"Diğer oyuncuların nereyi gösterdiğini gösterir ve kendi imlecini onlarla paylaşır. İşaret rengini kullanır.",""
