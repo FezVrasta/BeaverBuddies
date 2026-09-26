@@ -1,7 +1,5 @@
 ﻿using Timberborn.BaseComponentSystem;
-using Timberborn.BlockSystem;
 using Timberborn.BlueprintSystem;
-using Timberborn.Coordinates;
 using Timberborn.EntitySystem;
 using Timberborn.Persistence;
 using Timberborn.StartingLocationSystem;
@@ -15,7 +13,7 @@ namespace BeaverBuddies.Editor
         public int PlayerIndex { get; init; }
     }
 
-    public class StartingLocationPlayer : BaseComponent, IAwakableComponent, IRegisteredComponent, IPersistentEntity, IStartableComponent
+    public class StartingLocationPlayer : BaseComponent, IAwakableComponent, IRegisteredComponent, IPersistentEntity
     {
         public static readonly Color[] PLAYER_COLORS =
         {
@@ -43,17 +41,14 @@ namespace BeaverBuddies.Editor
                 // later on and Specs are shared between multiple entities.
                 PlayerIndex = _startingLocationPlayerSpec.PlayerIndex;
             }
-        }
 
-        public void Start()
-        {
             Plugin.Log($"Start index initialized with PlayerIndex: {PlayerIndex}");
             StartingLocationRenderer renderer = GetComponent<StartingLocationRenderer>();
-            if (renderer != null )
+            if (renderer != null)
             {
                 renderer._renderers.ForEach(r =>
                 {
-                    if (r.material != null )
+                    if (r.material != null)
                     {
                         r.material.color = PLAYER_COLORS[PlayerIndex];
                     }

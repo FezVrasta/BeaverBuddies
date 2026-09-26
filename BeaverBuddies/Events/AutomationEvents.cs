@@ -135,8 +135,9 @@ namespace BeaverBuddies.Events
                 (typeof(PowerMeter), nameof(PowerMeter.SetIntThreshold)),
                 (typeof(PowerMeter), nameof(PowerMeter.SetMode)),
                 (typeof(PowerMeter), nameof(PowerMeter.SetPercentThreshold)),
-                (typeof(Relay), nameof(Relay.SetInputA)),
-                (typeof(Relay), nameof(Relay.SetInputB)),
+                (typeof(Relay), nameof(Relay.SetInput)),
+                (typeof(Relay), nameof(Relay.IncreaseInputs)),
+                (typeof(Relay), nameof(Relay.RemoveInput)),
                 (typeof(Relay), nameof(Relay.SetMode)),
                 (typeof(ResourceCounter), nameof(ResourceCounter.SetComparisonMode)),
                 (typeof(ResourceCounter), nameof(ResourceCounter.SetFillRateThreshold)),
@@ -161,23 +162,26 @@ namespace BeaverBuddies.Events
 
                 // Some building also have special automation UIs that exist when automated
                 (typeof(Floodgate), nameof(Floodgate.SetAutomationHeightAndSynchronize)),
-                (typeof(Valve), nameof(Valve.SetAutomationOutflowLimitAndSynchronize)),
-                (typeof(Valve), nameof(Valve.SetAutomationOutflowLimitEnabledAndSynchronize)),
-                (typeof(Valve), nameof(Valve.SetReactionSpeedAndSynchronize)),
                 (typeof(FillValve), nameof(FillValve.SetAutomationTargetHeightAndSynchronize)),
                 (typeof(FillValve), nameof(FillValve.SetAutomationTargetHeightEnabledAndSynchronize)),
 
                 // TODO: These are not automation-related events, but they are "automated" events
                 // so I need to refactor this class to separate these two ideas
-                (typeof(Valve), nameof(Valve.SetOutflowLimitAndSynchronize)),
-                (typeof(Valve), nameof(Valve.SetOutflowLimitEnabledAndSynchronize)),
-                (typeof(Valve), nameof(Valve.ToggleSynchronization)),
                 (typeof(FillValve), nameof(FillValve.SetTargetHeightAndSynchronize)),
                 (typeof(FillValve), nameof(FillValve.SetTargetHeightEnabledAndSynchronize)),
+                (typeof(FillValve), nameof(FillValve.SetAutomationTargetHeightAndSynchronize)),
+                (typeof(FillValve), nameof(FillValve.SetAutomationTargetHeightEnabledAndSynchronize)),
                 (typeof(FillValve), nameof(FillValve.ToggleSynchronization)),
+                (typeof(ThrottlingValve), nameof(ThrottlingValve.SetOutflowLimitAndSynchronize)),
+                (typeof(ThrottlingValve), nameof(ThrottlingValve.SetReactionSpeedAndSynchronize)),
+                (typeof(ThrottlingValve), nameof(ThrottlingValve.SetAutomationOutflowLimitAndSynchronize)),
+                (typeof(ThrottlingValve), nameof(ThrottlingValve.SetAutomationOutflowLimitEnabledAndSynchronize)),
+                (typeof(ThrottlingValve), nameof(ThrottlingValve.ToggleSynchronization)),
                 (typeof(WaterSourceRegulator), nameof(WaterSourceRegulator.Open)),
                 (typeof(WaterSourceRegulator), nameof(WaterSourceRegulator.Close)),
                 (typeof(WaterSourceRegulator), nameof(WaterSourceRegulator.Automate)),
+                (typeof(WaterInputPipeCoordinates), nameof(WaterInputPipeCoordinates.SetDepthLimit)),
+                (typeof(WaterInputPipeCoordinates), nameof(WaterInputPipeCoordinates.DisableDepthLimit)),
                 (typeof(Clutch), nameof(Clutch.SetMode)),
 
             ];
@@ -529,6 +533,51 @@ namespace BeaverBuddies.Events
                     activateEarly = evt.newValue,
                 };
             });
+        }
+    }
+
+    [HarmonyPatch(typeof(RelayFragment), nameof(RelayFragment.RemoveRow))]
+    [ManualMethodOverwrite]
+    /*
+    8/15/2026
+    private void RemoveRow(int index)
+	{
+		_relay.RemoveInput(index);
+		for (int i = index; i < _visibleMultipleInputs; i++)
+		{
+			_inputSelectors[i].UpdateSelectedValue();
+		}
+		_visibleMultipleInputs--;
+	}
+     */
+    static class RelayFragmentRemoveRowPatch
+    {
+        static bool Prefix(RelayFragment __instance, int index)
+        {
+            __instance._relay.RemoveInput(index);
+            // Don't update the UI (wait until the change actually happens)
+            // We move that code below.
+            return false;
+        }
+    }
+
+    [HarmonyPatch(typeof(RelayFragment), nameof(RelayFragment.UpdateFragment))]
+    [ManualMethodOverwrite]
+    /* See above */
+    static class RelayFragmentUpdateFragmentPatch
+    {
+        static void Postfix(RelayFragment __instance)
+        {
+            if (__instance._relay == null) return;
+            if (__instance._visibleMultipleInputs != __instance._relay.Inputs.Count)
+            {
+                __instance._visibleMultipleInputs = __instance._relay.Inputs.Count;
+                for (int i = 0; i < __instance._visibleMultipleInputs; i++)
+                {
+                    __instance._inputSelectors[i].UpdateSelectedValue();
+                }
+                __instance.UpdateMultipleInputs();
+            }
         }
     }
 }
