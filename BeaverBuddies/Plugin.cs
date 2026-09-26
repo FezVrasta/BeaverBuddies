@@ -54,6 +54,7 @@ namespace BeaverBuddies
             containerDefinition.Bind<RehostingService>().AsSingleton();
             containerDefinition.Bind<ReportingService>().AsSingleton();
             containerDefinition.Bind<LateTickableBuffer>().AsSingleton();
+            containerDefinition.Bind<WaterSourceStrengthFixService>().AsSingleton();
             containerDefinition.Bind<BeaverBuddies.Ping.PingService>().AsSingleton();
             containerDefinition.Bind<BeaverBuddies.DevTools.DevToolsService>().AsSingleton();
             containerDefinition.Bind<BeaverBuddies.Cursors.PlayerCursorService>().AsSingleton();
